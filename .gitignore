@@ -1,32 +1,19 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+```#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	string line; getline(cin,line);
+	stringstream ss(line);
+	vector<int> a; 	stack <int> st ;
+	int x; while(ss>>x) a.emplace_back(x);
+	int find=a.size();
+	for(int i=3; i>=0&&find>0 ; i--){
+		if(a[i]!=find) st.push(a[i]);
+		else find--;
+	}
+	while(!st.empty()){
+		if(st.top()!=find){ cout<<"false"<<endl; return 0;}
+		st.pop();
+		find--;
+	}
+	cout<<"True"<<endl;
+}```
